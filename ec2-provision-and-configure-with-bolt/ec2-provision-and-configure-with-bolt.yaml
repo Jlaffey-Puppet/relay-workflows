@@ -54,27 +54,27 @@ steps:
       name: relay-workflows
       repository: !Parameter terraformRepository
 
-- name: configure-instance-with-bolt
-  dependsOn:
-    - provision-ec2-with-terraform
-  image: relaysh/bolt-step-run
-  spec:
-    type: plan
-    name: !Parameter boltPlanName
-    projectDir: !Parameter boltProjectDir
-    installModules: true
-    targets: !Output [provision-ec2-with-terraform, EC2_IP]
-    credentials:
-      id_rsa: !Connection { type: ssh, name: bolt-ec2-private-key }
-    transport:
-      type: ssh
-      user: ubuntu
-      privateKey: id_rsa
-      verifyHost: false
-    git:
+#- name: configure-instance-with-bolt
+#  dependsOn:
+#    - provision-ec2-with-terraform
+#  image: relaysh/bolt-step-run
+#  spec:
+#    type: plan
+#    name: !Parameter boltPlanName
+#    projectDir: !Parameter boltProjectDir
+#    installModules: true
+#    targets: !Output [provision-ec2-with-terraform, EC2_IP]
+#    credentials:
+#      id_rsa: !Connection { type: ssh, name: bolt-ec2-private-key }
+#    transport:
+#      type: ssh
+#      user: ubuntu
+#      privateKey: id_rsa
+#      verifyHost: false
+#    git:
       # Since the bolt plan might be pulled from a private repository, we've included
       # a parameter here for cloning in that scenario. If you are cloning from a public
       # repository and no public key is required, you can remove the connection line below.
-      connection: !Connection { type: ssh, name: bolt-repo-private-key }
-      name: bolt-repository
-      repository: !Parameter boltRepository
+#      connection: !Connection { type: ssh, name: bolt-repo-private-key }
+#      name: bolt-repository
+#      repository: !Parameter boltRepository
