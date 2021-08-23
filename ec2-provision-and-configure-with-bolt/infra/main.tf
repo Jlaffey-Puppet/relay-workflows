@@ -3,8 +3,7 @@ terraform {
 }
 
 provider "aws" {
-#  region = local.workspace["aws_region"]
-  region = "us-west-1"
+  region = local.workspace["aws_region"]
   shared_credentials_file = "/workspace/credentials"
 }
 
