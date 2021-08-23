@@ -4,8 +4,8 @@ locals {
     file = "workspace.${terraform.workspace}.tfvars.json"
 
     defaults = {
-	    vpc_id = ""
-	    aws_region = ""
+	    vpc_id = "vpc-568bb233"
+	    aws_region = "us-west-1"
       key_name = ""
     }
   }
