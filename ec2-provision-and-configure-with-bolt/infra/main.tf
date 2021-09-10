@@ -7,7 +7,7 @@ provider "aws" {
   shared_credentials_file = "/workspace/credentials"
 }
 
-resource "aws_security_group" "web_sg1" {
+resource "aws_security_group" "web_sg" {
   name        = "Web SG"
   description = "Managed by Terraform"
   vpc_id      = local.workspace["vpc_id"]
