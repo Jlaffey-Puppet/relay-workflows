@@ -8,7 +8,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "web_sg" {
-  name        = "Web SG"
+  name        = "Web SG1"
   description = "Managed by Terraform"
   vpc_id      = local.workspace["vpc_id"]
 
